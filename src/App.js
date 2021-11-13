@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
 
-function App() {
+export default function App() {
+  const [option, setoption] = useState('')
+
+  const onChangeOption = (event) => {
+    setoption(event.target.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <select id="option" onChange={onChangeOption}>
+      <option value="success_kid">Success Kid</option>
+      <option value="laughing_leo">Laughing Leo</option>
+      <option value="disaster_girl">Disaster Girl</option>
+      <option value="smart_person">Smart Person</option>
+    </select>    
+    <input type="text" placeholder="Texto 1"/>
+    <input type="text" placeholder="Texto 1"/>
+    <img src={`/img/${option}.png`}/>
+    </>
+  )
 }
 
-export default App;
